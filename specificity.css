@@ -1,0 +1,32 @@
+/* 10 rules nhắm vào thẻ <p id="demo" class="text highlight"> */
+/* Sắp xếp từ thấp đến cao theo điểm Specificity */
+
+/* 1. Điểm: (0, 0, 0) */
+* { color: gray; }
+
+/* 2. Điểm: (0, 0, 1) */
+p { color: pink; }
+
+/* 3. Điểm: (0, 1, 0) */
+.text { color: orange; }
+
+/* 4. Điểm: (0, 1, 1) */
+p.text { color: yellow; }
+
+/* 5. Điểm: (0, 2, 0) */
+.text.highlight { color: green; }
+
+/* 6. Điểm: (0, 2, 1) */
+p.text.highlight { color: teal; }
+
+/* 7. Điểm: (1, 0, 0) */
+#demo { color: blue; }
+
+/* 8. Điểm: (1, 0, 1) */
+p#demo { color: purple; }
+
+/* 9. Điểm: (1, 1, 0) */
+#demo.text { color: brown; }
+
+/* 10. Điểm: (1, 2, 1) - Điểm cao nhất! */
+p#demo.text.highlight { color: red; }

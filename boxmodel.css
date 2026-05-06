@@ -1,0 +1,66 @@
+/* Phần 1: Chứng minh content-box vs border-box */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+.box-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    background-color: #e0f7fa;
+    text-align: center;
+    font-weight: bold;
+}
+
+.box-content {
+    box-sizing: content-box; /* Mặc định của trình duyệt */
+}
+
+.box-border {
+    box-sizing: border-box; /* Ép padding, border vào trong width */
+}
+
+/* Phần 2: Layout 3 cột */
+.layout-container {
+    width: 1000px;
+    background-color: #ccc; /* Nền của container để dễ nhìn phần trống */
+    margin-bottom: 30px;
+    display: flex;
+    /* Kẻ viền đỏ đứt đoạn để bạn dễ nhận ra mốc 1000px */
+    outline: 2px dashed red; 
+}
+
+/* Các thuộc tính chung của cột */
+.sidebar, .ads {
+    width: 250px;
+    padding: 15px;
+    background-color: #fff9c4; /* màu nhạt */
+}
+
+.content {
+    width: 500px;
+    padding: 20px;
+    background-color: #c8e6c9;
+}
+
+/* --- Trường hợp 1: Dùng border-box --- */
+.border-box-on .col {
+    box-sizing: border-box;
+}
+
+/* --- Trường hợp 2: Không dùng border-box --- */
+.border-box-off {
+    flex-wrap: wrap; /* Cho phép rớt dòng nếu tổng chiều dài vượt quá 1000px */
+}
+
+.border-box-off .col {
+    box-sizing: content-box; /* Giữ nguyên hành vi độn kích thước */
+}
