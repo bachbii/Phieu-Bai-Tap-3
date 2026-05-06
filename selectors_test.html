@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Test - Câu A2</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background-color: #f9f9f9;
+        }
+        .container { 
+            display: flex; 
+            gap: 20px; 
+        }
+        .html-preview, .results { 
+            background: #fff;
+            border: 1px solid #ddd; 
+            padding: 20px; 
+            width: 50%; 
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .result-box { 
+            margin-bottom: 15px; 
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 10px; 
+        }
+        .result-box:last-child {
+            border-bottom: none;
+        }
+        code { 
+            background: #f4f4f4; 
+            padding: 3px 6px; 
+            border-radius: 4px; 
+            color: #d63384;
+            font-size: 1.1em;
+        }
+        .text-content {
+            color: #0d6efd;
+            font-weight: bold;
+        }
+        /* Style cho phần app mô phỏng */
+        #app {
+            border: 2px dashed #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kiểm chứng đáp án CSS Selectors (Câu A2)</h1>
+    <div class="container">
+        <!-- Phần render HTML mẫu -->
+        <div class="html-preview">
+            <h3>HTML Mẫu</h3>
+            <div id="app">
+                <header class="top-bar dark">
+                    <h1>ShopTLU</h1>
+                    <nav>
+                        <a href="/" class="active">Home</a>
+                        <a href="/products">Products</a>
+                        <a href="/about">About</a>
+                    </nav>
+                </header>
+                <main>
+                    <article class="product">
+                        <h2>iPhone 16</h2>
+                        <p class="price">25.990.000đ</p>
+                        <p>Mô tả sản phẩm...</p>
+                    </article>
+                    <article class="product featured">
+                        <h2>MacBook Pro</h2>
+                        <p class="price">45.990.000đ</p>
+                        <p>Mô tả sản phẩm...</p>
+                    </article>
+                </main>
+            </div>
+        </div>
+
+        <!-- Phần hiển thị kết quả truy xuất bằng JS -->
+        <div class="results">
+            <h3>Kết quả dùng document.querySelectorAll()</h3>
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <script>
+        const selectors = [
+            "h1",
+            ".price",
+            "#app header",
+            "nav a:first-child",
+            ".product.featured h2",
+            "article > p",
+            "a[href='/']",
+            ".top-bar.dark h1"
+        ];
+
+        const outputDiv = document.getElementById('output');
+
+        selectors.forEach((sel, index) => {
+            // Sử dụng querySelectorAll để lấy tất cả element khớp với selector
+            const elements = document.querySelectorAll(sel);
+            let textContents = [];
+            
+            elements.forEach(el => {
+                // Lấy nội dung text, loại bỏ khoảng trắng thừa để hiển thị đẹp hơn
+                let text = el.textContent.trim().replace(/\s+/g, ' ');
+                textContents.push(`<span class="text-content">"${text}"</span>`);
+            });
+
+            const resultHtml = `
+                <div class="result-box">
+                    <strong>${index + 1}. Selector: <code>${sel}</code></strong><br>
+                    - Số lượng thẻ HTML chọn được: <strong>${elements.length}</strong><br>
+                    - Text content: ${textContents.join(' | ')}
+                </div>
+            `;
+            outputDiv.innerHTML += resultHtml;
+        });
+    </script>
+</body>
+</html>
