@@ -1,0 +1,107 @@
+/* Dòng đầu tiên CSS theo yêu cầu */
+* {
+    box-sizing: border-box;
+}
+
+/* Typography cơ bản cho Body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f5f8;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header: background gradient, text trắng, padding 20px */
+header {
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    color: #ffffff;
+    padding: 25px;
+}
+
+/* Navigation links */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+/* Link mặc định: không gạch chân, màu cụ thể */
+nav a {
+    text-decoration: none;
+    color: #e0f7fa;
+    font-weight: bold;
+    padding: 5px;
+}
+
+/* Hover link: đổi màu + gạch chân */
+nav a:hover {
+    color: #ffe082;
+    text-decoration: underline;
+}
+
+/* Link đang active: kiểu khác biệt */
+nav a.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+/* Table kỹ năng */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Yêu cầu bắt buộc */
+    margin-top: 15px;
+    background-color: #fff;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Header row của table: background đậm, text trắng */
+thead tr {
+    background-color: #2c3e50;
+    color: #ffffff;
+}
+
+/* Zebra striping: dùng tr:nth-child(even) đổi background */
+tbody tr:nth-child(even) {
+    background-color: #ecf0f1;
+}
+
+/* Hover row: đổi background dòng bảng khi di chuột vào */
+tbody tr:hover {
+    background-color: #d5dbdb;
+}
+
+/* Footer: background đậm, text nhạt, text-align center */
+footer {
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Căn chỉnh nhẹ cho layout dễ nhìn hơn xíu */
+main, aside {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+#lien-he {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
