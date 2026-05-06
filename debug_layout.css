@@ -1,0 +1,60 @@
+/* Cấu hình chung cho cả 2 cách */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding-bottom: 50px;
+}
+
+/* Container ranh giới 960px (em để viền gạch ngang màu đỏ cho dễ hình dung) */
+.container {
+    width: 960px;
+    margin: 20px auto;
+    border: 2px dashed red;
+    background-color: #fff;
+}
+
+/* Những thuộc tính đề bài cho chung (padding, border, float) */
+.sidebar {
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+    background-color: #d1ecf1;
+    height: 150px; /* Thêm height nhìn cho ra dáng cái cột */
+}
+
+.content {
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+    background-color: #fff3cd;
+    height: 150px;
+}
+
+/* ========================================= */
+/* CÁCH 1: DÙNG BORDER-BOX                   */
+/* ========================================= */
+/* Giữ nguyên width đề cho (300 và 660) nhưng phang thêm box-sizing */
+.sidebar.fix1 {
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.content.fix1 {
+    width: 660px;
+    box-sizing: border-box;
+}
+
+/* ========================================= */
+/* CÁCH 2: KHÔNG DÙNG BORDER-BOX             */
+/* ========================================= */
+/* Mặc định là content-box, nên phải trừ tay phần lố (padding + border) */
+/* Sidebar ban đầu 300 -> trừ đi 40 (padding) và 2 (border) = 258px */
+.sidebar.fix2 {
+    width: 258px;
+    /* Không ghi box-sizing thì mặc định nó vẫn là content-box */
+}
+
+/* Content ban đầu 660 -> trừ đi 60 (padding) và 2 (border) = 598px */
+.content.fix2 {
+    width: 598px;
+}

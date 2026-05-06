@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài C1 - Debug CSS Layout</title>
+    <link rel="stylesheet" href="debug_layout.css">
+</head>
+<body>
+    <h2 style="text-align: center;">Cách 1: Fix bằng border-box</h2>
+    <!-- Container 1 -->
+    <div class="container container-fix1">
+        <div class="sidebar fix1">
+            <strong>Sidebar</strong><br>
+            (Width cũ 300px, thêm border-box)
+        </div>
+        <div class="content fix1">
+            <strong>Content</strong><br>
+            (Width cũ 660px, thêm border-box)
+        </div>
+        <!-- Thêm thẻ này để chống trôi layout (clear float) -->
+        <div style="clear: both;"></div>
+    </div>
+
+    <h2 style="text-align: center;">Cách 2: Fix bằng cách tính trừ hao width (Không dùng border-box)</h2>
+    <!-- Container 2 -->
+    <div class="container container-fix2">
+        <div class="sidebar fix2">
+            <strong>Sidebar</strong><br>
+            (Width bóp lại còn 258px)
+        </div>
+        <div class="content fix2">
+            <strong>Content</strong><br>
+            (Width bóp lại còn 598px)
+        </div>
+        <!-- Thêm thẻ này để chống trôi layout (clear float) -->
+        <div style="clear: both;"></div>
+    </div>
+</body>
+</html>
